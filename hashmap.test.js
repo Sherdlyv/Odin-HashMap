@@ -52,3 +52,22 @@ test('Generate an index for a key', () => {
     expect(myHashMap.has('banana')).toBe(true);
     expect(myHashMap.has('unknown_key')).toBe(false); 
   });
+
+   
+  test('devrait supprimer une paire cle/valeur correctement (remove)', () => {
+    myHashMap.set('apple', 'red');
+    myHashMap.set('banana', 'yellow');
+    myHashMap.set('carrot', 'orange');
+
+    
+    expect(myHashMap.remove('banana')).toBe(true);
+    expect(myHashMap.has('banana')).toBe(false); 
+    expect(myHashMap.get('banana')).toBeUndefined(); 
+
+   
+    expect(myHashMap.remove('apple')).toBe(true);
+    expect(myHashMap.has('apple')).toBe(false);
+
+    
+    expect(myHashMap.remove('unknown_item')).toBe(false);
+  });

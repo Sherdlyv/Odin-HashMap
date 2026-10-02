@@ -98,8 +98,34 @@ export class HashMap {
         }
         return false;
 
+    }
+
+    remove(key) {
+
+        let index = this.hash(key);
+        let actual = this.buckets[index];
+        
+        while (actual !== null) {
+
+            let prev = null;
+
+            if( actual.key === key) {
+
+                if (prev === null) {
+                    this.buckets[index] = actual.next;
+                } else {
+                    prev.next = actual.next;
+                }
+
+                prev = actual;
+                return true;
+            }
+
+            actual = actual.next;
 
 
+        }
+        return false;
 
     }
 
