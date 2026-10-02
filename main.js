@@ -82,7 +82,27 @@ export class HashMap {
     }
       
 
-    
+    has(key) {
+
+        let index = this.hash(key);
+        let actual = this.buckets[index];
+
+        while (actual !== null) {
+
+            if( actual.key === key) {
+            return true;
+        }
+
+        actual = actual.next;
+        
+        }
+        return false;
+
+
+
+
+    }
+
 
 
 

@@ -48,5 +48,7 @@ test('Generate an index for a key', () => {
     expect(myHashMap.get('unknown_key')).toBeUndefined(); 
 
   
-    
+    expect(myHashMap.has('apple')).toBe(true);
+    expect(myHashMap.has('banana')).toBe(true);
+    expect(myHashMap.has('unknown_key')).toBe(false); 
   });
