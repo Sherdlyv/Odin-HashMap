@@ -129,6 +129,27 @@ export class HashMap {
 
     }
 
+    length() {
+ 
+        let count = 0;
+
+        for (let i = 0; i < this.buckets.length; i++) {
+            let actual = this.buckets[i];
+
+        while (actual !== null) {
+            
+             count++;
+            actual = actual.next;
+        }
+
+        
+
+    }
+
+    return count;
+
+
+    }
 
 
 
