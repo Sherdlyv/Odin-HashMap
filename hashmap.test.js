@@ -76,4 +76,19 @@ describe('HashMap Structure Tests', () => {
 
       expect(myHashMap.length()).toBe(3); 
   });
+
+    test('devrait vider entierement la HashMap (clear)', () => {
+    myHashMap.set('apple', 'red');
+    myHashMap.set('banana', 'yellow');
+    
+    expect(myHashMap.length()).toBe(2);
+
+    myHashMap.clear();
+    
+    expect(myHashMap.length()).toBe(0);
+    expect(myHashMap.get('apple')).toBeUndefined();
+  });
+
 });
+
+
