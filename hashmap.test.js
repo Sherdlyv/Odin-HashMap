@@ -127,6 +127,23 @@ describe('HashMap Structure Tests', () => {
   });
 
 
+    test('devrait doubler la capacite automatiquement lorsque le load_factor est depasse', () => {
+    // On insère 12 éléments (16 * 0.75 = 12, la limite stricte avant explosion)
+    myHashMap.set('1', 'A'); myHashMap.set('2', 'B'); myHashMap.set('3', 'C');
+    myHashMap.set('4', 'D'); myHashMap.set('5', 'E'); myHashMap.set('6', 'F');
+    myHashMap.set('7', 'G'); myHashMap.set('8', 'H'); myHashMap.set('9', 'I');
+    myHashMap.set('10', 'J'); myHashMap.set('11', 'K'); myHashMap.set('12', 'L');
+
+    expect(myHashMap.capacity).toBe(16); // Toujours à 16
+
+    // Le 13ème élément déclenche l'alarme du load_factor !
+    myHashMap.set('13', 'M');
+
+    expect(myHashMap.capacity).toBe(32); // La capacité doit avoir doublé !
+    expect(myHashMap.get('1')).toBe('A'); // Les anciennes données doivent encore être accessibles
+    expect(myHashMap.get('13')).toBe('M'); // La nouvelle donnée est bien là
+  });
+
 });
 
 

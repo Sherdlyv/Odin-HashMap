@@ -30,6 +30,18 @@ export class HashMap {
 
     set(key, value) {
 
+        if (this.length() / this.capacity >= this.load_factor) {
+            let newEntry = this.entries();
+            
+            this.capacity = this.capacity * 2;
+            this.buckets = new Array(this.capacity).fill(null);
+
+            for (let i = 0; i < newEntry.length; i++) {
+                let [oldKey, oldValue] = newEntry[i];
+                this.set(oldKey, oldValue); 
+            }
+        }
+
         let index = this.hash(key);
 
         let bucket = this.buckets[index];
@@ -193,5 +205,6 @@ export class HashMap {
         }
         return arr;
     }
+
 
 }
