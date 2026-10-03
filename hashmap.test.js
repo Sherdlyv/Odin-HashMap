@@ -115,6 +115,17 @@ describe('HashMap Structure Tests', () => {
     expect(allValues.length).toBe(3);
   });
 
+    test('devrait retourner un tableau de paires [cle, valeur] (entries)', () => {
+    myHashMap.set('apple', 'red');
+    myHashMap.set('banana', 'yellow');
+
+    const allEntries = myHashMap.entries();
+
+    expect(allEntries).toContainEqual(['apple', 'red']);
+    expect(allEntries).toContainEqual(['banana', 'yellow']);
+    expect(allEntries.length).toBe(2);
+  });
+
 
 });
 
