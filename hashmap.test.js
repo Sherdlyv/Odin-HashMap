@@ -89,6 +89,33 @@ describe('HashMap Structure Tests', () => {
     expect(myHashMap.get('apple')).toBeUndefined();
   });
 
+    test('devrait retourner un tableau contenant toutes les cles (keys)', () => {
+    myHashMap.set('apple', 'red');
+    myHashMap.set('banana', 'yellow');
+    myHashMap.set('carrot', 'orange');
+
+    const allKeys = myHashMap.key();
+    
+    expect(allKeys).toContain('apple');
+    expect(allKeys).toContain('banana');
+    expect(allKeys).toContain('carrot');
+    expect(allKeys.length).toBe(3);
+  });
+
+  test('devrait retourner un tableau contenant toutes les valeurs (values)', () => {
+    myHashMap.set('apple', 'red');
+    myHashMap.set('banana', 'yellow');
+    myHashMap.set('carrot', 'orange');
+
+    const allValues = myHashMap.values();
+    
+    expect(allValues).toContain('red');
+    expect(allValues).toContain('yellow');
+    expect(allValues).toContain('orange');
+    expect(allValues.length).toBe(3);
+  });
+
+
 });
 
 

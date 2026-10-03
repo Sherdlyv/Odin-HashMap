@@ -156,8 +156,31 @@ export class HashMap {
 
     }
 
+    key() {
+        let arr = [];
+
+        for (let i = 0; i < this.buckets.length; i++) {
+            let actual = this.buckets[i];
+            while (actual !== null) {
+                arr.push(actual.key);
+                actual = actual.next;
+            }
+        }
+        return arr;
+    }
+
+    values() {
+        let arr = [];
+
+        for (let i = 0; i < this.buckets.length; i++) {
+            let actual = this.buckets[i];
+            while (actual !== null) {
+                arr.push(actual.value);
+                actual = actual.next;
+            }
+        }
+        return arr;
+    }
+
     
-
-
-
 }
